@@ -1,6 +1,12 @@
 # python-fake-dns
 
+# 第0步
 
+开启vagrant虚拟机，该虚拟机ip地址为`192.168.1.168`，该虚拟机提供对域名`my-domain.test`的网页服务
+
+# 第1步
+
+宿主机运行下面这个python进行fake dns，宿主机ip是`192.168.1.122`
 
 ```python
 
@@ -32,7 +38,7 @@ class DNSQuery:
     return packet
 
 if __name__ == '__main__':
-  ip='192.168.1.1'   #<---------------------------------------把这里改成目标局域网地址就行
+  ip='192.168.1.168'   #<---------------------------------------把这里改成目标局域网地址就行
   print 'pyminifakeDNS:: dom.query. 60 IN A %s' % ip
   
   udps = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -52,7 +58,13 @@ if __name__ == '__main__':
 ```
 
 
+# 第2步
 
+在与宿主机同局域网的安卓手机里，修改dns为宿主机地址`192.168.1.122`
+
+# 第3步
+
+安卓手机就能在浏览器里访问到`http://my-domain.test`了
 
 
 
