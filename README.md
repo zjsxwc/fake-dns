@@ -1,4 +1,4 @@
-# python-fake-dns
+# fake-dns
 
 # 第0步
 
